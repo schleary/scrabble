@@ -4,12 +4,15 @@ describe Scrabble do
 
   # check letter values
   describe "#self.get_letter_value" do
-    it "returns a value for the word ('Q')" do
+    # checks that letters return values
+    it "when word value is'Q'" do
       expect(Scrabble.get_letter_value("Q")).to eq 10
     end
+    # raises exception if non-alpha symbol is entered
     it "raises ArgumentError exception" do
       expect{Scrabble.get_letter_value('&')}.to raise_error(NoMethodError)
     end
+    # raises exception if no character is entered
     it "raises ArgumentError exception" do
       expect{Scrabble.get_letter_value(' ')}.to raise_error(NoMethodError)
     end
@@ -17,15 +20,8 @@ describe Scrabble do
 
   # self.score(word) returns the total score value for the given word (case insensitive)
   describe "#self.score" do
-    it "returns a value for the word ('ADBFKJQ')" do
-      expect(Scrabble.score("ADBFKJQ")).to eq 33
-    end
-  end
-
-  # self.highest_score_from(array_of_words) returns the word in the array with the highest score.
-  describe "#self.highest_score_from" do
-    it "returns word in array with the highest value" do
-      expect(Scrabble.highest_score_from(['ADBFKJQ', 'THE', 'BEES'])).to eq 'ADBFKJQ'
+    it "returns a value for the word ('PURPLE')" do
+      expect(Scrabble.score("PURPLE")).to eq 10
     end
   end
 
@@ -46,7 +42,7 @@ describe Scrabble do
   end
 
   #gets the highest score for a variety of situations
-  describe "compares words" do
+  describe "#highest_score_from" do
     it "when array of words is passed in" do
       expect(Scrabble.highest_score_from(['HILLY', 'FILLO', 'QUIZ', 'JACKPOT', 'HIJACK', 'JINXING'])).to eq 'JACKPOT'
     end
