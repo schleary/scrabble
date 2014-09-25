@@ -30,4 +30,31 @@ describe Player do
       expect(player2.won?).to eq false
     end
   end
+
+
+  describe "#plays" do
+    it "populates the #plays array" do
+      expect(player2.play('FIRE')).to eq true
+    end
+    it "populates the #plays array" do
+      expect(player2.play('ABORT')).to eq true
+    end
+
+    it "populates the #plays array" do
+      expect(player.play('COOP')).to eq false
+    end
+
+  end
+
+  describe "#play" do
+    # Returns false if player has won
+    it "returns false if the player has won" do
+      expect(player2.plays).to eq ['FIRE', 'ABORT']
+    end
+
+    it "returns false if the player has won" do
+      expect(player.plays).to eq []
+    end
+  end
+
 end

@@ -31,11 +31,9 @@ class Player
   end
 
   def play(word)
-    puts "WELL?"
     if won? == true
       return false
     else
-      puts "HERE?"
       @plays << word
     end
     return true
